@@ -6,7 +6,17 @@ var _numVoices = 8;
 var _currentTime;
 var _lastIndex;
 var _clockEl = document.getElementById("clock");
-var _context = new webkitAudioContext(); // one context per document
+
+var _context = null;
+
+if (typeof AudioContext !== 'undefined') {
+  _context = new AudioContext();
+} else if (typeof webkitAudioContext !== 'undefined') {
+  _context = new webkitAudioContext();
+} else {
+	alert("I'm sorry, but your browser does not support HTML5 audio :-(");
+}
+
 var _canvas = document.getElementById("canvas");
 _canvas = _canvas.getContext("2d");
 
