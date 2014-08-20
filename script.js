@@ -38,7 +38,7 @@ for (var i = 0; i < _numVoices; i++)
 }
 
 $(document).ready(function() {
-	$.getJSON('http://apis.is/earthquake/is', function(data) {
+	$.getJSON('earthquakes.json', function(data) {
 		_earthquakeData = data;
 		setup();
 	});
