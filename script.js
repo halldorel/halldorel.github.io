@@ -21,7 +21,7 @@ var _poly = [];
 for (var i = 0; i < _numVoices; i++)
 {
 	var voice = _context.createOscillator();
-	voice.type = 1;
+	voice.type = 0;
 
 	var gain = _context.createGain();
 	gain.gain.value = 0;
