@@ -46,12 +46,29 @@ for (var i = 0; i < _numVoices; i++)
 	
 	_poly.push({ voice: voice, gain: gain, panner: panner });
 }
+var iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
+
+if (iOS)
+{
+	$(document).click(function () {
+	
+		for(var i in _poly)
+		{
+			_poly[i].voice.start(0);
+		}
+	});
+}
 
 $(document).ready(function() {
+
 	$.getJSON('earthquakes.json', function(data) {
+
 		_earthquakeData = data;
+
 		setup();
+
 	});
+
 });
 
 function setup()
